@@ -213,22 +213,22 @@ describe('Blog posts API resource', function() {
     //  2. make a DELETE request for that restaurant's id
     //  3. assert that response has right status code
     //  4. prove that restaurant with the id doesn't exist in db anymore
-    it('delete a restaurant by id', function() {
+    it('delete a post by id', function() {
 
-      let restaurant;
+      let post;
 
-      return Restaurant
+      return BlogPost
         .findOne()
-        .then(function(_restaurant) {
-          restaurant = _restaurant;
-          return chai.request(app).delete(`/restaurants/${restaurant.id}`);
+        .then(function(_post) {
+          post = _post;
+          return chai.request(app).delete(`/posts/${post.id}`);
         })
         .then(function(res) {
           expect(res).to.have.status(204);
-          return Restaurant.findById(restaurant.id);
+          return BlogPost.findById(post.id);
         })
-        .then(function(_restaurant) {
-          expect(_restaurant).to.be.null;
+        .then(function(_post) {
+          expect(_post).to.be.null;
         });
     });
   });
