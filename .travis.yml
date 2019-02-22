@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 nguage: node_js
+=======
+language: node_js
+>>>>>>> 6b317f4922482a7efccc7a1a84e32a546c35d0d9
 node_js: node
 services:
 - mongodb
